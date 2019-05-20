@@ -24,7 +24,7 @@ BUILDATE=$(date '+%s')
 DISTDATE=$(date '+%Y-%m-%d %H:%M')
 
 BRANCH=$(git -C "${DIR}" symbolic-ref -q --short HEAD)
-VERSION=$(git -C "${DIR}" describe --tags --first-parent 2>/dev/null)
+VERSION=$(git -C "${DIR}" rev-parse --short HEAD 2>/dev/null)
 
 [ -z "${BRANCH}" ] && BRANCH=$(echo "${TRAVIS_BRANCH}")
 [ -z "${VERSION}" ] && VERSION=$(git -C "${DIR}" describe --tags --first-parent --always 2>/dev/null)
