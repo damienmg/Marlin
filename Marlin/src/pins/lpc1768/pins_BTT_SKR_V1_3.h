@@ -65,17 +65,10 @@
   #define Y_MAX_PIN                        P1_26  // Y+
 #endif
 
-#if Z_STALL_SENSITIVITY
-  #define Z_STOP_PIN                  Z_DIAG_PIN
-  #if Z_HOME_DIR < 0
-    #define Z_MAX_PIN                      P1_24  // Z+
-  #else
-    #define Z_MIN_PIN                      P1_24  // Z+
-  #endif
-#else
-  #define Z_MIN_PIN                        P1_25  // Z-
-  #define Z_MAX_PIN                        P1_24  // Z+
-#endif
+// We invert Z_MIN and Z_MAX so that stallguard is connected to Z_MAX and the Bl-Touch
+// to Z_MIN indeed using BlTouch as a z-min switch.
+#define Z_MIN_PIN          P1_24   // Z_MIN
+#define Z_MAX_PIN          P1_25   // Z_MAX
 
 #define ONBOARD_ENDSTOPPULLUPS                    // Board has built-in pullups
 
