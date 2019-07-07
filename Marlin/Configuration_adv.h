@@ -1854,7 +1854,7 @@
    * It is advised to set X/Y/Z_HOME_BUMP_MM to 0.
    * M914 X/Y/Z to live tune the setting
    */
-  //#define SENSORLESS_HOMING // TMC2130 only
+  #define SENSORLESS_HOMING // TMC2130 only
 
   /**
    * Use StallGuard2 to probe the bed with the nozzle.
@@ -1865,8 +1865,8 @@
   //#define SENSORLESS_PROBING // TMC2130 only
 
   #if EITHER(SENSORLESS_HOMING, SENSORLESS_PROBING)
-    #define X_STALL_SENSITIVITY  8
-    #define Y_STALL_SENSITIVITY  8
+    #define X_STALL_SENSITIVITY  110
+    #define Y_STALL_SENSITIVITY  110
     //#define Z_STALL_SENSITIVITY  8
   #endif
 
