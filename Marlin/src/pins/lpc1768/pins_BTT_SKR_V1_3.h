@@ -90,6 +90,11 @@
 // Filament Runout Sensor
 //
 #ifndef FIL_RUNOUT_PIN
+  // SKR 1.3 pins define the runout pins as X_MAX, but X_MAX is connected to the
+  // E0 diagnostic pin, which can be used to detect filament jam and nozzle clog (
+  // stallguard will be triggered). Instead I use Y_MAX which is connected to the
+  // E1 diagnostic pin but I don't use E1.
+  // For someone who has a E1, then using EXP2 pins could do the trick.
   #define FIL_RUNOUT_PIN                   P1_28
 #endif
 
