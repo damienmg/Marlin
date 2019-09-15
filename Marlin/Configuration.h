@@ -450,7 +450,7 @@
 // Above this temperature the heater will be switched off.
 // This can protect components from overheating, but NOT from shorts and failures.
 // (Use MINTEMP for thermistor short/failure protection.)
-// E3D v6 clone all metal can go up to 450
+// E3D v6 clone all metal from Trianglelab can go up to 450
 #define HEATER_0_MAXTEMP 450
 #define HEATER_1_MAXTEMP 275
 #define HEATER_2_MAXTEMP 275
