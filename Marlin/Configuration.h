@@ -748,7 +748,7 @@
  * Override with M203
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  */
-#define DEFAULT_MAX_FEEDRATE          { 700, 700, 20, 60 }
+#define DEFAULT_MAX_FEEDRATE          { 700, 700, 15, 60 }
 
 //#define LIMITED_MAX_FR_EDITING        // Limit edit via M203 or LCD to DEFAULT_MAX_FEEDRATE * 2
 #if ENABLED(LIMITED_MAX_FR_EDITING)
@@ -967,15 +967,17 @@
  *
  * Specify a Probe position as { X, Y, Z }
  */
-#define NOZZLE_TO_PROBE_OFFSET { 49, 0, 0 }
+#define NOZZLE_TO_PROBE_OFFSET_X 49
+#define NOZZLE_TO_PROBE_OFFSET_Y 0
+
+#define NOZZLE_TO_PROBE_OFFSET { NOZZLE_TO_PROBE_OFFSET_X, NOZZLE_TO_PROBE_OFFSET_Y, 0 }
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
 #define MIN_PROBE_EDGE 20
 
 // X and Y axis travel speed (mm/m) between probes.
-// Keep it below the hybrid threshold to stay in stealthchop.
-#define XY_PROBE_SPEED (X_HYBRID_THRESHOLD*60-1)
+#define XY_PROBE_SPEED 150*60
 
 // Feedrate (mm/m) for the first approach when double-probing (MULTIPLE_PROBING == 2)
 #define Z_PROBE_SPEED_FAST HOMING_FEEDRATE_Z
@@ -1372,13 +1374,13 @@
 
 #if ENABLED(Z_SAFE_HOMING)
   // We point around the position of the first probe for the Z_SAFE_HOMING.
-  #define Z_SAFE_HOMING_X_POINT MIN_PROBE_EDGE    // X point for Z homing when homing all axes (G28).
-  #define Z_SAFE_HOMING_Y_POINT MIN_PROBE_EDGE    // Y point for Z homing when homing all axes (G28).
+  #define Z_SAFE_HOMING_X_POINT (MIN_PROBE_EDGE+NOZZLE_TO_PROBE_OFFSET_X)    // X point for Z homing when homing all axes (G28).
+  #define Z_SAFE_HOMING_Y_POINT (MIN_PROBE_EDGE+NOZZLE_TO_PROBE_OFFSET_Y)    // Y point for Z homing when homing all axes (G28).
 #endif
 
 // Homing speeds (mm/m)
-#define HOMING_FEEDRATE_XY (X_HYBRID_THRESHOLD*60-1)
-#define HOMING_FEEDRATE_Z  (20*60)
+#define HOMING_FEEDRATE_XY (100*60)
+#define HOMING_FEEDRATE_Z  (13*60)
 
 // Validate that endstops are triggered on homing moves
 #define VALIDATE_HOMING_ENDSTOPS
