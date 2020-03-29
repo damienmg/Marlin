@@ -680,7 +680,7 @@
   // Define probe X and Y positions for Z1, Z2 [, Z3 [, Z4]]
   // If not defined, probe limits will be used.
   // Override with 'M422 S<index> X<pos> Y<pos>'
-  #define Z_STEPPER_ALIGN_XY { {  10, 10 }, { 215,  10 } }
+  #define Z_STEPPER_ALIGN_XY { {  45, 115 }, { 205,  115 } }
 
   /**
    * Orientation for the automatically-calculated probe positions.
@@ -2107,7 +2107,7 @@
   #endif
 
   #if AXIS_IS_TMC(E0)
-    #define E0_CURRENT      900
+    #define E0_CURRENT      750
     #define E0_MICROSTEPS    16
     #define E0_RSENSE         0.11
     #define E0_CHAIN_POS     -1
@@ -2286,7 +2286,7 @@
   #define X2_HYBRID_THRESHOLD    X_HYBRID_THRESHOLD
   #define Y_HYBRID_THRESHOLD     X_HYBRID_THRESHOLD
   #define Y2_HYBRID_THRESHOLD    X_HYBRID_THRESHOLD
-  #define Z_HYBRID_THRESHOLD       14
+  #define Z_HYBRID_THRESHOLD       30
   #define Z2_HYBRID_THRESHOLD      3
   #define Z3_HYBRID_THRESHOLD      3
   #define Z4_HYBRID_THRESHOLD      3
@@ -2328,7 +2328,7 @@
     // TMC2209: 0...255. TMC2130: -64...63
     #define X_STALL_SENSITIVITY  110
     #define X2_STALL_SENSITIVITY X_STALL_SENSITIVITY
-    #define Y_STALL_SENSITIVITY  110
+    #define Y_STALL_SENSITIVITY  105
     //#define Z_STALL_SENSITIVITY  8
     //#define SPI_ENDSTOPS              // TMC2130 only
     //#define IMPROVE_HOMING_RELIABILITY
