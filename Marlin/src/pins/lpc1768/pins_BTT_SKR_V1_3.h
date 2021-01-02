@@ -95,7 +95,7 @@
   // stallguard will be triggered). Instead I use Y_MAX which is connected to the
   // E1 diagnostic pin but I don't use E1.
   // For someone who has a E1, then using EXP2 pins could do the trick.
-  #define FIL_RUNOUT_PIN                   P1_28
+  #define FIL_RUNOUT_PIN                   P1_26
 #endif
 
 //
